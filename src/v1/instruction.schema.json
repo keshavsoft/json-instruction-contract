@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://keshavsoft.com/schemas/json-instruction.schema.json",
+  "title": "JSON Instruction",
+  "type": "object",
+  "required": ["destinationPath", "sourcePath", "func"],
+  "properties": {
+    "narration": {"type":"string"},
+    "destinationPath": {"$ref":"#/$defs/path"},
+    "sourcePath": {"$ref":"#/$defs/path"},
+    "templateKey": {"type":"string","minLength":1},
+    "func": {"type":"string","minLength":1}
+  },
+  "$defs": {"path":{"type":"object","required":["fileName","filePath"],"properties":{"fileName":{"type":"string","minLength":1},"dataRole":{"type":"string"},"filePath":{"type":"array","items":{"type":["string","integer"]}}},"additionalProperties":false}}
+}
